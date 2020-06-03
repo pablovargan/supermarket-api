@@ -19,5 +19,11 @@ namespace Supermarket.Api.Persistence.Repositories
         {
             return await _context.Categories.ToListAsync();
         }
+
+        public async Task AddAsync(Category category)
+        {
+            // Add the model to our set, but data won't be saved (in-memory db)
+            await _context.Categories.AddAsync(category);
+        }
     }
 }
