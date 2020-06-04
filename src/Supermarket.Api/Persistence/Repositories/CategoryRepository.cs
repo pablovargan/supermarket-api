@@ -25,5 +25,15 @@ namespace Supermarket.Api.Persistence.Repositories
             // Add the model to our set, but data won't be saved (in-memory db)
             await _context.Categories.AddAsync(category);
         }
+
+        public async Task<Category> FindByIdAsync(int id)
+        {
+            return await _context.Categories.FindAsync(id);
+        }
+
+        public void Update(Category category)
+        {
+            _context.Categories.Update(category);
+        }
     }
 }

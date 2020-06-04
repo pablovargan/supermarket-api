@@ -11,7 +11,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:5000/api/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories",
+						""
+					]
 				}
 			},
 			"response": []
@@ -52,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"\"\r\n}",
+					"raw": "{\r\n\t\"name\": \"Bakery\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -69,6 +79,36 @@
 					"path": [
 						"api",
 						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the name of \"Bakery\" tp \"Former Bakery\"",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Former Bakery\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/categories/102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories",
+						"102"
 					]
 				}
 			},
