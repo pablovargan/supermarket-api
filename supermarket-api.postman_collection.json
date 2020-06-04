@@ -27,6 +27,27 @@
 			"response": []
 		},
 		{
+			"name": "Delete Category Id = 101",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/categories/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create Category with <empty> Name",
 			"request": {
 				"method": "POST",
