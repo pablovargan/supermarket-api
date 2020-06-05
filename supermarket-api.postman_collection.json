@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/categories/",
+					"raw": "http://localhost:5000/api/categories",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -19,8 +19,27 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"categories",
-						""
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
 					]
 				}
 			},
