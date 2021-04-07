@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Supermarket.Api.Controllers
 {
-    [Route("api/[controller]")]
-    public class ProductsController : Controller
+    [ApiVersion("1.0")]
+    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
@@ -20,6 +22,10 @@ namespace Supermarket.Api.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Gets all products
+        /// </summary>
+        /// <returns>List of products</returns>
         [HttpGet]
         public async Task<IEnumerable<ProductResource>> ListAsync()
         {

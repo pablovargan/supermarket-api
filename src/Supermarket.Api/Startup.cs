@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Supermarket.Api.Domain.Repositories;
 using Supermarket.Api.Domain.Services;
 using Supermarket.Api.Persistence.Contexts;
@@ -26,10 +27,16 @@ namespace Supermarket.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddApiVersioning();
 
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("supermarket-api-in-memory");
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Supermarket API", Version = "v1" });
             });
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
@@ -50,14 +57,17 @@ namespace Supermarket.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Supermarket API V1");
             });
         }
     }
